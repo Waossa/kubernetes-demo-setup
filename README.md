@@ -9,6 +9,7 @@ The motivation for this repository was to practise Kubernetes installation, try 
 ## Known issues and shortcomings
 1. While the sample applications are successfully deployed and they boot up without issue, there still remains some networking problems that prevent k8s services from obtaining a reachable IP address, thus rendering the services unavailable
 2. The Salt configuration is rather rough. Individual commands listed there would be re-run if you were to re-apply the state. While this nicely overwrites files and avoids configuration drift, there probably exists better ways to do that. Ideally the whole kubernetes setup would probably be handled by the appropriate Salt Extension but again, I wanted to figure out the necessary steps myself.
+3. For some reason, Google-provided sample nginx container image, `gcr.io/google-samples/hello-frontend:1.0` kept crashing on the provided sample configuration. This was worked around by using the basic nginx image and applying extra config files as configmap. The NGINX logs are available to the host machine via Vagrant share, eg. the will appear in this repository in `nginxlogs` folder.
 
 ## Getting Started
 
