@@ -20,6 +20,9 @@ kubernetes:
 "cp /vagrant/files/config.toml /etc/containerd/config.toml":
   cmd.run
 
+"mkdir /etc/default ; echo \"KUBELET_EXTRA_ARGS=--node-ip=$(ip route | grep eth1 | awk '{ print $9 }')\" > /etc/default/kubelet":
+  cmd.run
+
 "echo 1 > /proc/sys/net/ipv4/ip_forward":
   cmd.run
 
